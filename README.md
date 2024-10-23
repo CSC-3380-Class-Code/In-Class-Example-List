@@ -5,7 +5,7 @@ To see how to fully use Generics in C#, check <a href="https://learn.microsoft.c
 
 # Running commands
 
-Make sure your current directory in terminal is Promises. You can check this with the following command:
+Make sure your current directory in terminal is List. You can check this with the following command:
 ```bash
 # windows
 cd

@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class List<Type> where Type : IComparable{
+public class List<Type> : IComparable where Type : IComparable{
 	public Type[] list;
 	private int size;
 
@@ -34,6 +34,19 @@ public class List<Type> where Type : IComparable{
 
 	public int Index(){
 		return list.Length;
+	}
+
+	public int CompareTo(object obj){
+		List<Type> list2 = (List<Type>)obj;
+
+		if(this.size < list2.size){
+			return -1;
+		}
+		if(this.size > list2.size){
+			return 1;
+		}
+
+		return 0;
 	}
 
 	public bool Sort(){
@@ -83,17 +96,25 @@ public class ListTest{
 		l.Sort();
 		Console.WriteLine(l);
 
+		List<int> l2 = new List<int>(arr);
+
+		List<List<int>> l3 = new List<List<int>>([l, l2]);
+		Console.WriteLine(l3);
+
+		l3.Sort();
+		Console.WriteLine(l3);
+
 		string[] str_arr = {"1", "Hello"};
 		string str1 = "HI";
 
-		List<string> l2 = new List<string>(str_arr);
-		Console.WriteLine(l2);
+		List<string> l4 = new List<string>(str_arr);
+		Console.WriteLine(l4);
 
-		l2 = l2 + str1;
-		Console.WriteLine(l2);
+		l4 = l4 + str1;
+		Console.WriteLine(l4);
 
-		l2 = l2 + l2;
-		Console.WriteLine(l2);
+		l4 = l4 + l4;
+		Console.WriteLine(l4);
 
 	}
 }
